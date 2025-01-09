@@ -1,0 +1,89 @@
+site_name: Documentation for fizz.ai
+site_url: https://dawnkelly09.github.io/mkdocs-fizz
+# home_url: 
+home_name: fizz.ai
+# site_dir: /var/www/fizz-docs-static
+docs_dir: fizz-docs
+copyright: © 2024 fizz.ai. All rights reserved.
+theme:
+  name: material
+  custom_dir: material-overrides
+  favicon: assets/images/favicon.png
+  logo: assets/images/logo.png
+  font:
+    text: DM Sans
+    code: Source Code Pro
+  features:
+    - content.code.copy
+    - navigation.footer
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - toc.follow
+extra_css:
+  - assets/stylesheets/terminal.css
+markdown_extensions:
+  - admonition
+  - attr_list
+  - codehilite
+  - md_in_html
+  - meta
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.keys
+  - pymdownx.snippets:
+      base_path: kluster-docs/.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: ＃
+plugins:
+  - search
+  - awesome-pages
+  - macros:
+      include_yaml:
+        - fizz-docs/variables.yml
+  - redirects:
+      redirect_maps:
+        getting-started.md: get-started/quickstart.md
+        get-started/api.md: get-started/quickstart.md
+        tutorials/klusterai-api/getting-started.md: get-started/quickstart.md
+  - mkdocs-jupyter:
+      ignore_h1_titles: True
+validation:
+  absolute_links: ignore
+extra:
+  generator: !!bool false
+  social:
+    - icon: fontawesome/brands/x-twitter
+      link: https://twitter.com/fizzai
+      name: X
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/fizz-ai/
+      name: LinkedIn
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/fizzai/
+      name: Instagram
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/profile.php?id=000000
+      name: Facebook
+  analytics:
+    provider: google
+    property: G-XXX
+  # TODO: set up feedback
+  #   feedback:
+  #     title: Was this page helpful?
+  #     ratings:
+  #       - icon: material/emoticon-happy-outline
+  #         name: This page was helpful
+  #         data: 1
+  #         note: >-
+  #           Thanks for your feedback!
+  #       - icon: material/emoticon-sad-outline
+  #         name: This page could be improved
+  #         data: 0
+  #         note: >-
+  #           Thanks for your feedback! Help us improve this page by submitting
+  #           <a href="https://github.com/XXX/XXX/issues/new/?title=[Feedback]+{title}+-+{url}" target="_blank" rel="noopener">additional feedback</a>.
