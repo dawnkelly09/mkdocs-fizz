@@ -1,5 +1,0 @@
-title: Get started
-hide: false
-nav:
- - 'Quickstart': quickstart.md
- - 'Get an API key': get-api-key.md
