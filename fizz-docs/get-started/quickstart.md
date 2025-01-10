@@ -1,11 +1,11 @@
 ---
-title: kluster.ai API Quickstart Guide
-description: The kluster.ai API getting started guide provides examples and instructions for submitting and managing Batch jobs using kluster.ai's OpenAI-compatible API.
+title: fizz.ai API Quickstart Guide
+description: The fizz.ai API getting started guide provides examples and instructions for submitting and managing Batch jobs using fizz.ai's OpenAI-compatible API.
 ---
 
-# Start using the kluster.ai API
+# Start using the fizz.ai API
 
-The kluster.ai API provides a straightforward way to work with Large Language Models (LLMs) at scale. It is compatible with OpenAI Python library and Batch API, making it easy to integrate into your existing workflows with minimal code changes.
+The fizz.ai API provides a straightforward way to work with Large Language Models (LLMs) at scale. It is compatible with OpenAI Python library and Batch API, making it easy to integrate into your existing workflows with minimal code changes.
 
 Choose your preferred way to interact with the API:
 
@@ -23,13 +23,13 @@ pip install "openai>=1.0.0"
 
 ## Get your API key
 
-Navigate to the [platform.kluster.ai](http://platform.kluster.ai){target=\_blank} web app and select **API Keys** from the left-hand menu. Create a new API key by specifying the API key name. You'll need this for all API requests.
+Navigate to the [platform.fizz.ai](http://platform.fizz.ai){target=\_blank} web app and select **API Keys** from the left-hand menu. Create a new API key by specifying the API key name. You'll need this for all API requests.
 
-For step-by-step instructions, refer to the [Generate your kluster.ai API key](/get-started/get-api-key){target=\_blank} guide.
+For step-by-step instructions, refer to the [Generate your fizz.ai API key](/get-started/get-api-key){target=\_blank} guide.
 
 ## Batch job workflow overview
 
-Working with Batch jobs in the kluster.ai API involves the following steps:
+Working with Batch jobs in the fizz.ai API involves the following steps:
 
 1. **Create Batch job files** - structure your Batch requests as JSON files with the required details
 2. **Upload Batch files** - send your JSON files to the API and receive a file ID for reference
@@ -50,9 +50,9 @@ Each request needs to include the following arguments:
 - `url` ++"string"++ -  the `/v1/chat/completions` endpoint
 - `body` ++"object"++ - a request body containing:
     - `model` ++"string"++ <span class="required" markdown>++"required"++</span> - name of the `model` to use, can be one of:
-        - `klusterai/Meta-Llama-3.1-8B-Instruct-Turbo`
-        - `klusterai/Meta-Llama-3.1-405B-Instruct-Turbo`
-        - `klusterai/Meta-Llama-3.3-70B-Instruct-Turbo`
+        - `fizzai/Meta-Llama-3.1-8B-Instruct-Turbo`
+        - `fizzai/Meta-Llama-3.1-405B-Instruct-Turbo`
+        - `fizzai/Meta-Llama-3.3-70B-Instruct-Turbo`
 
         !!! tip
             You can see the full list of available models programmatically using the [list supported models](#list-supported-models) endpoint.
@@ -69,7 +69,7 @@ The following examples generate requests and save them in a JSONL file, ready fo
     import json
 
     client = OpenAI(
-        base_url="https://api.kluster.ai/v1",
+        base_url="https://api.fizz.ai/v1",
         api_key="INSERT_API_KEY",  # Replace with your actual API key
     )
 
@@ -79,7 +79,7 @@ The following examples generate requests and save them in a JSONL file, ready fo
             "method": "POST",
             "url": "/v1/chat/completions",
             "body": {
-                "model": "klusterai/Meta-Llama-3.1-8B-Instruct-Turbo",
+                "model": "fizzai/Meta-Llama-3.1-8B-Instruct-Turbo",
                 "messages": [
                     {"role": "system", "content": "You are a helpful assistant."},
                     {"role": "user", "content": "What is the capital of Argentina?"},
@@ -92,7 +92,7 @@ The following examples generate requests and save them in a JSONL file, ready fo
             "method": "POST",
             "url": "/v1/chat/completions",
             "body": {
-                "model": "klusterai/Meta-Llama-3.3-70B-Instruct-Turbo",
+                "model": "fizzai/Meta-Llama-3.3-70B-Instruct-Turbo",
                 "messages": [
                     {"role": "system", "content": "You are a maths tutor."},
                     {"role": "user", "content": "Explain the Pythagorean theorem."},
@@ -105,7 +105,7 @@ The following examples generate requests and save them in a JSONL file, ready fo
             "method": "POST",
             "url": "/v1/chat/completions",
             "body": {
-                "model": "klusterai/Meta-Llama-3.3-70B-Instruct-Turbo",
+                "model": "fizzai/Meta-Llama-3.3-70B-Instruct-Turbo",
                 "messages": [
                     {
                         "role": "system",
@@ -133,10 +133,10 @@ The following examples generate requests and save them in a JSONL file, ready fo
 
     ```bash
     cat << EOF > mybatchtest.jsonl
-    {"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "klusterai/Meta-Llama-3.1-8B-Instruct-Turbo", "messages": [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "What is the capital of Argentina?"}],"max_completion_tokens":1000}}
-    {"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "klusterai/Meta-Llama-3.3-70B-Instruct-Turbo", "messages": [{"role": "system", "content": "You are an experienced maths tutor."}, {"role": "user", "content": "Explain the Pythagorean theorem."}],"max_completion_tokens":1000}}
-    {"custom_id": "request-3", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "klusterai/Meta-Llama-3.1-405B-Instruct-Turbo", "messages": [{"role": "system", "content": "You are an astronomer."}, {"role": "user", "content": "What is the distance between the Earth and the Moon"}],"max_completion_tokens":1000}}
-    {"custom_id": "request-4", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "klusterai/Meta-Llama-3.3-70B-Instruct-Turbo", "messages":[{"role": "system", "content": "You are a multilingual, experienced maths tutor."}, {"role": "user", "content": "Explain the Pythagorean theorem in Spanish"}],"max_completion_tokens":1000}}
+    {"custom_id": "request-1", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "fizzai/Meta-Llama-3.1-8B-Instruct-Turbo", "messages": [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": "What is the capital of Argentina?"}],"max_completion_tokens":1000}}
+    {"custom_id": "request-2", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "fizzai/Meta-Llama-3.3-70B-Instruct-Turbo", "messages": [{"role": "system", "content": "You are an experienced maths tutor."}, {"role": "user", "content": "Explain the Pythagorean theorem."}],"max_completion_tokens":1000}}
+    {"custom_id": "request-3", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "fizzai/Meta-Llama-3.1-405B-Instruct-Turbo", "messages": [{"role": "system", "content": "You are an astronomer."}, {"role": "user", "content": "What is the distance between the Earth and the Moon"}],"max_completion_tokens":1000}}
+    {"custom_id": "request-4", "method": "POST", "url": "/v1/chat/completions", "body": {"model": "fizzai/Meta-Llama-3.3-70B-Instruct-Turbo", "messages":[{"role": "system", "content": "You are a multilingual, experienced maths tutor."}, {"role": "user", "content": "Explain the Pythagorean theorem in Spanish"}],"max_completion_tokens":1000}}
     EOF
     ```
 
@@ -147,7 +147,7 @@ Upload your [JSON Lines](https://jsonlines.org/){target=\_blank} file to the `fi
 The response will contain an `id` field; save this value as you'll need it in the next step, where it's referred to as `input_file_id`.
 
 !!! note
-    You can also view all your uploaded files in the [**Files** tab](https://platform.kluster.ai/files){target=\_blank} of the kluster.ai platform.
+    You can also view all your uploaded files in the [**Files** tab](https://platform.fizz.ai/files){target=\_blank} of the fizz.ai platform.
 
 === "Python"
 
@@ -162,7 +162,7 @@ The response will contain an `id` field; save this value as you'll need it in th
 === "curl"
 
     ```bash title="Example request"
-    curl -s https://api.kluster.ai/v1/files \
+    curl -s https://api.fizz.ai/v1/files \
         -H "Authorization: Bearer $API_KEY" \
         -H "Content-Type: multipart/form-data" \
         -F "file=@mybatchtest.jsonl" \
@@ -200,7 +200,7 @@ The response includes an `id` that can be used to monitor the job's progress, as
 === "curl"
 
     ```bash title="Example request"
-    curl -s https://api.kluster.ai/v1/batches \
+    curl -s https://api.fizz.ai/v1/batches \
         -H "Authorization: Bearer $API_KEY" \
         -H "Content-Type: application/json" \
         -d '{
@@ -246,7 +246,7 @@ To monitor your Batch job's progress, make periodic requests to the `batches` en
 To see a complete list of the supported statuses, refer to the [Retrieve a batch](/api-reference/batch/#retrieve-a-batch){target=\_blank} API reference page.
 
 !!! note
-    You can also monitor jobs in the [**Batch** tab](https://platform.kluster.ai/batch) of the kluster.ai platform UI.
+    You can also monitor jobs in the [**Batch** tab](https://platform.fizz.ai/batch) of the fizz.ai platform UI.
 
 === "Python"
 
@@ -270,7 +270,7 @@ To see a complete list of the supported statuses, refer to the [Retrieve a batch
 === "curl"
 
     ```bash title="Example request"
-    curl -s https://api.kluster.ai/v1/batches/mybatch-123 \
+    curl -s https://api.fizz.ai/v1/batches/mybatch-123 \
         -H "Authorization: Bearer $API_KEY" \
         -H "Content-Type: application/json"
     ```
@@ -331,7 +331,7 @@ The output file will be a JSONL file, where each line contains the `custom_id` f
 === "curl"
 
     ```bash title="Example request"
-    curl -s https://api.kluster.ai/v1/files/kluster-output-file-123/content \
+    curl -s https://api.fizz.ai/v1/files/fizz-output-file-123/content \
         -H "Authorization: Bearer $API_KEY" > batch_output.jsonl
     ```
 
@@ -346,7 +346,7 @@ To list all of your Batch jobs, send a request to the `batches` endpoint without
 
     # Configure OpenAI client
     client = OpenAI(
-        base_url="https://api.kluster.ai/v1", 
+        base_url="https://api.fizz.ai/v1", 
         api_key="INSERT_API_KEY" # Replace with your actual API key
     )
 
@@ -356,7 +356,7 @@ To list all of your Batch jobs, send a request to the `batches` endpoint without
 === "curl"
 
     ```bash title="Example request" 
-    curl -s https://api.kluster.ai/v1/batches \
+    curl -s https://api.fizz.ai/v1/batches \
         -H "Authorization: Bearer $API_KEY"
     ```
 
@@ -412,7 +412,7 @@ To cancel a Batch job currently in progress, send a request to the `cancel` endp
     from openai import OpenAI
 
     client = OpenAI(
-        base_url="https://api.kluster.ai/v1",  
+        base_url="https://api.fizz.ai/v1",  
         api_key="INSERT_API_KEY" # Replace with your actual API key
     )
     client.batches.cancel("mybatch-123") # Replace with your Batch id
@@ -421,7 +421,7 @@ To cancel a Batch job currently in progress, send a request to the `cancel` endp
 === "curl"
 
     ```bash title="Example"
-    curl -s https://api.kluster.ai/v1/batches/$BATCH_ID/cancel \
+    curl -s https://api.fizz.ai/v1/batches/$BATCH_ID/cancel \
         -H "Authorization: Bearer $API_KEY" \
         -H "Content-Type: application/json" \
         -X POST
@@ -458,7 +458,7 @@ To cancel a Batch job currently in progress, send a request to the `cancel` endp
 
 ## Summary
 
-Congratulations! You now have all the tools needed to work with the kluster.ai Batch API. In this guide, you've learned how to:
+Congratulations! You now have all the tools needed to work with the fizz.ai Batch API. In this guide, you've learned how to:
 
 - Prepare and submit Batch jobs with structured request inputs
 - Track your jobs' progress in real-time
@@ -467,4 +467,4 @@ Congratulations! You now have all the tools needed to work with the kluster.ai B
 - Cancel jobs when needed
 - View supported models
 
-The kluster.ai Batch API is designed to efficiently and reliably handle your large-scale LLM workloads. Do you have questions or suggestions? The [support](mailto:support@kluster.ai){target=\_blank} team would love to hear from you.
+The fizz.ai Batch API is designed to efficiently and reliably handle your large-scale LLM workloads. Do you have questions or suggestions? The [support](mailto:support@fizz.ai){target=\_blank} team would love to hear from you.

@@ -2,7 +2,7 @@ import json
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.kluster.ai/v1",
+    base_url="#",
     api_key="4532c187-d275-4a6b-940c-5d92f9b20ea6",  # Replace with your actual API key
 )
 
@@ -12,7 +12,7 @@ requests = [
         "method": "POST",
         "url": "/v1/chat/completions",
         "body": {
-            "model": "klusterai/Meta-Llama-3.1-8B-Instruct-Turbo",
+            "model": "fizz/Meta-Llama-3.1-8B-Instruct-Turbo",
             "messages": [
                 {"role": "system", "content": "You are a helpful assistant."},
                 {"role": "user", "content": "What is the capital of Argentina?"},
@@ -25,7 +25,7 @@ requests = [
         "method": "POST",
         "url": "/v1/chat/completions",
         "body": {
-            "model": "klusterai/Meta-Llama-3.3-70B-Instruct-Turbo",
+            "model": "fizzai/Meta-Llama-3.3-70B-Instruct-Turbo",
             "messages": [
                 {"role": "system", "content": "You are a maths tutor."},
                 {"role": "user", "content": "Explain the Pythagorean theorem."},
@@ -38,7 +38,7 @@ requests = [
         "method": "POST",
         "url": "/v1/chat/completions",
         "body": {
-            "model": "klusterai/Meta-Llama-3.3-70B-Instruct-Turbo",
+            "model": "fizzai/Meta-Llama-3.3-70B-Instruct-Turbo",
             "messages": [
                 {
                     "role": "system",

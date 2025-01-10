@@ -52,7 +52,7 @@
 [data-ty="input"]:before,
 [data-ty-prompt]:before {
     color: var(--mint);
-    content: 'kluster@ubuntu-jammy:';
+    content: 'fizz@ubuntu-jammy:';
     size: 12px;
 }
 

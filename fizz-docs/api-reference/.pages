@@ -1,8 +1,8 @@
 title: API reference
 hide: false
 nav:
- - 'Portal': api-portal.md
- - 'Chat': chat.md
- - 'Batch': batch.md
- - 'Files': files.md
- - 'Models': models.md
+ - 'API reference': api-portal.md
+ # - 'Chat': chat.md
+ # - 'Batch': batch.md
+ # - 'Files': files.md
+ # - 'Models': models.md
