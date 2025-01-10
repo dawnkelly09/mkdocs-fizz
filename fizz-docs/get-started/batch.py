@@ -3,7 +3,7 @@ from openai import OpenAI
 
 client = OpenAI(
     base_url="#",
-    api_key="4532c187-d275-4a6b-940c-5d92f9b20ea6",  # Replace with your actual API key
+    api_key="#",  # Replace with your actual API key
 )
 
 requests = [
