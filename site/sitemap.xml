@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://dawnkelly09.github.io/mkdocs-fizz/</loc>
+         <lastmod>2025-01-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dawnkelly09.github.io/mkdocs-fizz/api-reference/api-portal/</loc>
+         <lastmod>2025-01-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dawnkelly09.github.io/mkdocs-fizz/get-started/batch/</loc>
+         <lastmod>2025-01-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dawnkelly09.github.io/mkdocs-fizz/get-started/get-api-key/</loc>
+         <lastmod>2025-01-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://dawnkelly09.github.io/mkdocs-fizz/get-started/quickstart/</loc>
+         <lastmod>2025-01-10</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
