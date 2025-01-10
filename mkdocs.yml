@@ -3,7 +3,7 @@ site_url: https://dawnkelly09.github.io/mkdocs-fizz
 # home_url: 
 # home_name: fizz.ai
 # site_dir: /var/www/fizz-docs-static
-docs_dir: docs
+docs_dir: fizz-docs
 copyright: © 2024 fizz.ai. All rights reserved.
 theme:
   name: material
