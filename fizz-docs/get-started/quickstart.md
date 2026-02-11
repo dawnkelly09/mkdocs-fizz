@@ -4,7 +4,7 @@ description: The fizz.ai API getting started guide provides examples and instruc
 ---
 
 # Start using the fizz.ai API
-
+ <a href="https://docs.polkadot.com/ai/categories/basics.md" download="basics.md">with download value</a>
 <a href="https://docs.polkadot.com/ai/categories/basics.md" download="">basics.md</a>
 
 The fizz.ai API provides a straightforward way to work with Large Language Models (LLMs) at scale. It is compatible with OpenAI Python library and Batch API, making it easy to integrate into your existing workflows with minimal code changes.
