@@ -5,7 +5,7 @@ description: The fizz.ai API getting started guide provides examples and instruc
 
 # Start using the fizz.ai API
 
-<a href="https://docs.polkadot.com/ai/categories/reference.md" download="reference.md">
+<a href="https://docs.polkadot.com/ai/categories/reference.md" download="reference.md" data-filename="reference.md">
     Test me!
 </a>
 
